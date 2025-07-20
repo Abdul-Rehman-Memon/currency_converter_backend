@@ -19,25 +19,11 @@ export async function handleConvert(
   }
 }
 
-export async function handleHistory(
-  req: Request,
-  res: Response,
-  next: NextFunction
-) {
-  try {
-    const history = await currencyService.getHistory();
-    res.json(history);
-  } catch (err) {
-    next(err);
-  }
-}
-
 export const getCurrencies = async (
   req: Request,
   res: Response,
   next: NextFunction
 ) => {
-  console.log("get currencies");
   try {
     const resp = await currencyService.getCurrencyList();
     res.json(resp);

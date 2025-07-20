@@ -1,5 +1,5 @@
 import { ConversionRequest, ConversionRecord } from "../../types";
-import { saveRecord, fetchAllRecords } from "../repos/historyRepo";
+import * as currencyRepo from "../repos/currencyRepo";
 import {
   getCurrencyList as getCurrencies,
   getExchangeRate,
@@ -20,12 +20,8 @@ export async function convertCurrency(
     result,
     timestamp: Date.now(),
   };
-  await saveRecord(record);
+  await currencyRepo.saveRecord(record);
   return record;
-}
-
-export async function getHistory(): Promise<ConversionRecord[]> {
-  return await fetchAllRecords();
 }
 
 export async function getCurrencyList(): Promise<void> {
