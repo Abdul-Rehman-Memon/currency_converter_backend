@@ -5,9 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "ts-node src/server.ts",
+    "start": "ts-node ./app.ts",
     "build": "tsc",
-    "serve": "node dist/server.js",
+    "serve": "node dist/app.js",
     "dev": "nodemon"
   },
   "repository": {
