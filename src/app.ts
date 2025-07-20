@@ -1,11 +1,12 @@
 import express from "express";
 import { connectDB } from "./config/mongodb";
 import routes from "./api/routes/index";
+import cors from "cors";
 
 const app = express();
 
 app.use(express.json());
-
+app.use(cors());
 app.use("/api", routes);
 
 // Global error handler
