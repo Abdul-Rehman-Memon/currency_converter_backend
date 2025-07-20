@@ -25,7 +25,7 @@ app.use(
 // Initialize DB connection
 connectDB().catch((err) => {
   console.error("❌ DB connection failed", err);
-  process.exit(1);
+  process.exit(5);
 });
 
 export default app;

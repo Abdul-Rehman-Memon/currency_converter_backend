@@ -6,9 +6,13 @@ let db: Db;
 
 export async function connectDB(): Promise<void> {
   if (!db) {
-    await client.connect();
-    db = client.db(process.env.DB_NAME);
-    console.log("✅ Connected to MongoDB");
+    try {
+      await client.connect();
+      db = client.db(process.env.DB_NAME);
+      console.log("✅ Connected to MongoDB");
+    } catch (error) {
+      console.log("❌ DB connection failed", error);
+    }
   }
 }
 
