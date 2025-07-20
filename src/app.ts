@@ -1,12 +1,12 @@
 import express from "express";
 import { connectDB } from "./config/mongodb";
-import currencyRoutes from "./api/routes/currencyRoutes";
+import routes from "./api/routes/index";
 
 const app = express();
 
 app.use(express.json());
-app.use("/api/currency", currencyRoutes);
-app.use("/api/history", currencyRoutes);
+
+app.use("/api", routes);
 
 // Global error handler
 app.use(
